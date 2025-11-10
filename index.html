@@ -1,204 +1,280 @@
-<!doctype html>
-<html ⚡ lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1104389206292425"
-     crossorigin="anonymous"></script>
-  <meta charset="utf-8">
-  <title>ZenitTruco - Roblox 99 Noches</title>
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-  <meta name="description" content="Trucos y guías del juego 99 Noches en Roblox">
-  <link rel="canonical" href="https://www.zenittruco.com/">
-  <style amp-boilerplate>body{visibility:hidden}</style>
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <style amp-custom>
-    body{font-family:'Segoe UI',Tahoma,sans-serif;margin:0;background:#f4f4f4;color:#333}
-    header{background:linear-gradient(90deg,#2196f3,#0d47a1);color:#fff;padding:20px;text-align:center}
-    nav{background:#222;padding:10px;text-align:center}
-    nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold}
-    nav a:hover{color:#2196f3}
-    section{padding:20px;max-width:1000px;margin:auto;background:#fff;margin-bottom:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
-    h2{color:#0d47a1;border-bottom:2px solid #2196f3;padding-bottom:5px}
-    .post{border-bottom:1px solid #ddd;padding:15px 0}
-    .post:last-child{border-bottom:none}
-    footer{background:#222;color:#fff;text-align:center;padding:20px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reproductor Online</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #001f3f, #0074D9, #2ECC40);
+      color: #f8f8f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      margin-top: 25px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      height: 65px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 10px #2ECC40);
+    }
+
+    h1 {
+      color: #2ECC40;
+      font-size: 2.3rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .video-info {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      background: #2ECC40;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #28a745;
+      transform: translateY(-2px);
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #2ECC40;
+      border-radius: 5px;
+      transition: width 0.1s;
+    }
+
+    .time-display {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      height: 6px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      background: #2ECC40;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .btn {
+        justify-content: center;
+        width: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
+  <div class="container">
+    <header>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg" alt="Logo" class="logo">
+      <h1>Reproductor Online</h1>
+    </header>
 
-<header>
-  <h1>ZenitTruco</h1>
-  <p>Trucos, guías y novedades de Roblox: 99 Noches</p>
-</header>
+    <div class="video-section">
+      <div class="video-info">
+        <p><i class="fas fa-bolt"></i> Reproduce tu contenido favorito en alta calidad</p>
+      </div>
 
-<nav>
-  <a href="#inicio">Inicio</a>
-  <a href="#blog">Blog</a>
-  <a href="#contacto">Contacto</a>
-  <a href="#privacidad">Privacidad</a>
-  <a href="#cookies">Cookies</a>
-  <a href="#aviso">Aviso Legal</a>
-</nav>
+      <div class="video-container">
+        <video id="video-player" poster="https://upload.wikimedia.org/wikipedia/commons/7/75/No_image_available.png">
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>
 
-<section id="inicio">
-  <h2>Bienvenido a ZenitTruco Roblox</h2>
-  <p>En <strong>ZenitTruco</strong> encontrarás los mejores trucos y guías del juego <em>99 Noches</em> en Roblox, con estrategias para sobrevivir, construir y derrotar a los enemigos en cada nivel.</p>
-</section>
+      <div class="time-display">
+        <span id="current-time">00:00</span>
+        <span id="duration">00:00</span>
+      </div>
 
-<section id="blog">
-  <h2>Entradas de Roblox 99 Noches</h2>
+      <div class="progress-container" id="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
 
- 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1104389206292425"
-     crossorigin="anonymous"></script>
-<!-- anun1.1 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1104389206292425"
-     data-ad-slot="3443240030"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  <div class="post">
+      <div class="controls">
+        <button class="btn" id="play-btn"><i class="fas fa-play"></i> Reproducir</button>
+        <button class="btn" id="pause-btn"><i class="fas fa-pause"></i> Pausar</button>
+        <button class="btn" id="mute-btn"><i class="fas fa-volume-up"></i> Silenciar</button>
+        <button class="btn" id="fullscreen-btn"><i class="fas fa-expand"></i> Pantalla completa</button>
+        <div class="volume-control">
+          <span>Volumen:</span>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.7">
+        </div>
+      </div>
+    </div>
 
-    <h3> Armas secretas en 99 Noches</h3>
-    <amp-img src="armas.jpeg" alt="Roblox 99 Noches - Armas secretas desbloqueables" width="600" height="350" layout="responsive"></amp-img>
-    <p>Existen armas especiales que puedes desbloquear:</p>
-    <ul>
-      <li><strong>Martillo celestial:</strong> gran daño en área.</li>
-      <li><strong>Ballesta espectral:</strong> dispara a varios enemigos a la vez.</li>
-      <li><strong>Katana de sombras:</strong> velocidad y daño crítico.</li>
-    </ul>
-    <p><strong>Tip extra:</strong> busca cofres ocultos en mapas secundarios.</p>
-  </div>
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1104389206292425"
-     crossorigin="anonymous"></script>
-<!-- anun2.2 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1104389206292425"
-     data-ad-slot="2079199231"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    
-
-  <div class="post">
-    
-    <h3> Estrategias para las noches finales</h3>
-    <amp-img src="finales.jpg" alt="Roblox 99 Noches - Estrategias para las noches finales" width="600" height="350" layout="responsive"></amp-img>
-    <p>Cuando superas la noche 80, los enemigos se vuelven más agresivos:</p>
-    <ul>
-      <li><strong>Refuerza tu base:</strong> haz muros dobles o triples.</li>
-      <li><strong>Combina roles:</strong> defensores, exploradores y curadores.</li>
-      <li><strong>Coloca trampas:</strong> ralentizan a los jefes.</li>
-    </ul>
-    <p><em>Actualización 2025:</em> se añadieron enemigos con ataques a distancia.</p>
+    <footer>
+      <p>© 2025 Reproductor Online - Todos los derechos reservados</p>
+    </footer>
   </div>
 
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1104389206292425"
-     crossorigin="anonymous"></script>
-<!-- anun3.3 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1104389206292425"
-     data-ad-slot="6788600437"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  <div class="post">
-   
-    <h3> Construcciones más resistentes</h3>
-    <amp-img src="basesegura.jpg" alt="Roblox 99 Noches - Construcciones seguras y resistentes" width="600" height="350" layout="responsive"></amp-img>
-    <p>El diseño de tu refugio puede marcar la diferencia:</p>
-    <ul>
-      <li><strong>Materiales de piedra:</strong> duran más que la madera.</li>
-      <li><strong>Torres altas:</strong> mejor visión del terreno.</li>
-      <li><strong>Pisos múltiples:</strong> dan ventaja en defensa.</li>
-    </ul>
-    <p><strong>Tip extra:</strong> combina escaleras y pasadizos secretos para huir.</p>
-  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('video-player');
+      const playBtn = document.getElementById('play-btn');
+      const pauseBtn = document.getElementById('pause-btn');
+      const muteBtn = document.getElementById('mute-btn');
+      const fullscreenBtn = document.getElementById('fullscreen-btn');
+      const volumeSlider = document.getElementById('volume-slider');
+      const progressContainer = document.getElementById('progress-container');
+      const progressBar = document.getElementById('progress-bar');
+      const currentTimeEl = document.getElementById('current-time');
+      const durationEl = document.getElementById('duration');
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1104389206292425"
-     crossorigin="anonymous"></script>
-<!-- anun4.4 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1104389206292425"
-     data-ad-slot="4162437091"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  <div class="post">
-    
-    <h3>Personajes y sus habilidades</h3>
-    <amp-img src="habilidades.jpg" alt="Roblox 99 Noches - Personajes y habilidades especiales" width="600" height="350" layout="responsive"></amp-img>
-    <p>En 99 Noches, algunos avatares tienen ventajas:</p>
-    <ul>
-      <li><strong>Guerrero:</strong> más resistencia en combate.</li>
-      <li><strong>Ingeniero:</strong> construcciones más rápidas.</li>
-      <li><strong>Sanador:</strong> cura al equipo.</li>
-    </ul>
-    <p><strong>Tip extra:</strong> mezcla roles en tu escuadra para equilibrar el juego.</p>
-  </div>
+      // Video de ejemplo (seguro)
+      video.src = "https://cdn.pixabay.com/video/2018/11/15/22659-297395004_large.mp4";
 
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1104389206292425"
-     crossorigin="anonymous"></script>
-<!-- anun5.5 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1104389206292425"
-     data-ad-slot="9315525573"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  <div class="post">
-       <h3>Trucos avanzados de farmeo</h3>
-    <amp-img src="farmeo.jpg" alt="Roblox 99 Noches - Trucos avanzados para farmear recursos" width="600" height="350" layout="responsive"></amp-img>
-    <p>Para mejorar rápido y conseguir recursos:</p>
-    <ul>
-      <li><strong>Reutiliza materiales:</strong> desmonta estructuras viejas.</li>
-      <li><strong>Atrapa enemigos:</strong> algunos sueltan objetos raros.</li>
-      <li><strong>Misiones ocultas:</strong> desbloquean recompensas secretas.</li>
-    </ul>
-    <p><strong>Tip extra:</strong> dedica las primeras 10 noches a recolectar lo máximo posible.</p>
-  </div>
+      function formatTime(time) {
+        const min = Math.floor(time / 60);
+        const sec = Math.floor(time % 60);
+        return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+      }
 
-</section>
+      playBtn.addEventListener('click', () => video.play());
+      pauseBtn.addEventListener('click', () => video.pause());
 
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p>Escríbenos: <a href="mailto:todosera047@gmail.com">todosera047@gmail.com</a></p>
-</section>
+      muteBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        muteBtn.innerHTML = video.muted ?
+          '<i class="fas fa-volume-mute"></i> Activar sonido' :
+          '<i class="fas fa-volume-up"></i> Silenciar';
+      });
 
-<section id="privacidad">
-  <h2>Política de Privacidad</h2>
-  <p class="legal">En ZenitTruco respetamos tu privacidad. No compartimos tu información personal con terceros.</p>
-</section>
+      volumeSlider.addEventListener('input', () => video.volume = volumeSlider.value);
 
-<section id="aviso">
-  <h2>Aviso Legal</h2>
-  <p class="legal">ZenitTruco no está afiliado a Roblox. 99 Noches es una creación de sus respectivos desarrolladores en la plataforma Roblox.</p>
-</section>
+      video.addEventListener('timeupdate', () => {
+        const progress = (video.currentTime / video.duration) * 100;
+        progressBar.style.width = `${progress}%`;
+        currentTimeEl.textContent = formatTime(video.currentTime);
+      });
 
-<section id="cookies">
-  <h2>Política de Cookies</h2>
-  <p class="legal">Este sitio utiliza cookies para mejorar la experiencia del usuario y mostrar anuncios personalizados.</p>
-</section>
+      video.addEventListener('loadedmetadata', () => {
+        durationEl.textContent = formatTime(video.duration);
+      });
 
-<footer>
-  <script id="_waurrt">var _wau = _wau || []; _wau.push(["dynamic", "k40azx7u2k", "rrt", "cc0000000000", "small"]);</script><script async src="//waust.at/d.js"></script>
-  <p>© 2025 ZenitTruco - Todos los derechos reservados</p>
-</footer>
+      progressContainer.addEventListener('click', (e) => {
+        const newTime = (e.offsetX / progressContainer.clientWidth) * video.duration;
+        video.currentTime = newTime;
+      });
 
+      fullscreenBtn.addEventListener('click', () => {
+        if (video.requestFullscreen) video.requestFullscreen();
+        else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+        else if (video.msRequestFullscreen) video.msRequestFullscreen();
+      });
+    });
+  </script>
 </body>
 </html>
