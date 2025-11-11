@@ -1,325 +1,155 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html ⚡ lang="es">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1104389206292425"
      crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Viral - Reproductor</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 900px;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      margin-top: 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .logo {
-      height: 60px;
-      border-radius: 10px;
-      filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.6));
-    }
-
-    .player-container {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    .player-title {
-      text-align: center;
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      color: #00d2ff;
-    }
-
-    .video-info {
-      text-align: center;
-      margin-bottom: 20px;
-      padding: 10px;
-      background: rgba(0, 210, 255, 0.1);
-      border-radius: 8px;
-    }
-
-    .video-player-container {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      background: #000;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-
-    #video-player {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-    }
-
-    /* 🎨 EFECTO PIXELADO FUERTE + BOTÓN DE REPRODUCIR */
-    .video-player-container::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://raw.githubusercontent.com/MEME092/ZenitTrucoNight/480a04b12775ed60351d11f0a6405a57dd2e4347/darry.jpg');
-      background-size: cover;
-      background-position: center;
-      image-rendering: pixelated;
-      transform: scale(3); /* Aumenta el pixelado */
-      filter: brightness(0.8);
-      z-index: 1;
-    }
-
-    .video-player-container::after {
-      content: "\f04b";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      color: white;
-      font-size: 60px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      background: rgba(0,0,0,0.7);
-      border-radius: 50%;
-      padding: 25px 30px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .video-player-container:hover::after {
-      background: rgba(0,0,0,0.9);
-      transform: translate(-50%, -50%) scale(1.1);
-    }
-
-    .time-display {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .progress-container {
-      width: 100%;
-      height: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 15px 0;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: #00d2ff;
-      border-radius: 5px;
-      transition: width 0.1s;
-    }
-
-    .player-controls {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .control-btn {
-      background: #00d2ff;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: bold;
-    }
-
-    .control-btn:hover {
-      background: #00b0d4;
-      transform: translateY(-2px);
-    }
-
-    .control-btn i {
-      font-size: 1.2rem;
-    }
-
-    .volume-control {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-    }
-
-    .volume-control span {
-      min-width: 70px;
-    }
-
-    .volume-control input {
-      width: 100%;
-    }
-
-    input[type="range"] {
-      -webkit-appearance: none;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 5px;
-      outline: none;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
-      background: #00d2ff;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .social-share {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .social-btn {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #00d2ff;
-      color: white;
-      font-size: 1.5rem;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .social-btn:hover {
-      transform: scale(1.1);
-      background: #00b0d4;
-    }
-
-    footer {
-      margin-top: 30px;
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 15px;
-      }
-      .player-controls {
-        flex-direction: column;
-        align-items: stretch;
-      }
-    }
+  <meta charset="utf-8">
+  <title>FC Zenit - Guías FC Mobile y Fútbol 2025</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <meta name="description" content="FC Zenit te enseña cómo obtener gemas, FC Points y OVR+120 en FC Mobile 2025 con métodos reales, eventos y estrategias futboleras.">
+  <link rel="canonical" href="https://www.zenittruco.com/">
+  <style amp-boilerplate>body{visibility:hidden}</style>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <style amp-custom>
+    body{font-family:'Segoe UI',Tahoma,sans-serif;margin:0;background:#f4f4f4;color:#333}
+    header{background:linear-gradient(90deg,#2196f3,#0d47a1);color:#fff;padding:20px;text-align:center}
+    nav{background:#222;padding:10px;text-align:center}
+    nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold}
+    nav a:hover{color:#2196f3}
+    section{padding:20px;max-width:1000px;margin:auto;background:#fff;margin-bottom:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+    h2{color:#0d47a1;border-bottom:2px solid #2196f3;padding-bottom:5px}
+    .post{border-bottom:1px solid #ddd;padding:15px 0}
+    .post:last-child{border-bottom:none}
+    footer{background:#222;color:#fff;text-align:center;padding:20px}
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <header>
-      <div class="logo-container">
-        <img src="https://raw.githubusercontent.com/MEME092/ZenitTrucoNight/480a04b12775ed60351d11f0a6405a57dd2e4347/darry.jpg" alt="Logo" class="logo">
-      </div>
-    </header>
 
-    <div class="player-container">
-      <h2 class="player-title">Video Viral</h2>
+<header>
+  <h1>FC Zenit</h1>
+  <p>Guías, trucos y noticias sobre FC Mobile y el mundo del fútbol</p>
+</header>
 
-      <div class="video-info">
-        <p><i class="fas fa-fire"></i> <strong>Trending:</strong> Más de 1M de visualizaciones</p>
-      </div>
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#blog">Blog</a>
+  <a href="#contacto">Contacto</a>
+  <a href="#privacidad">Privacidad</a>
+  <a href="#cookies">Cookies</a>
+  <a href="#aviso">Aviso Legal</a>
+</nav>
 
-      <div class="video-player-container">
-        <video id="video-player" poster="https://raw.githubusercontent.com/MEME092/ZenitTrucoNight/480a04b12775ed60351d11f0a6405a57dd2e4347/darry.jpg">
-          Tu navegador no soporta el elemento de video.
-        </video>
-      </div>
+<section id="inicio">
+  <h2>Bienvenido a FC Zenit</h2>
+  <p>En <strong>FC Zenit</strong> te compartimos estrategias reales y seguras para progresar en <em>FC Mobile 2025</em>, junto con las últimas noticias del fútbol mundial. Aprende a mejorar tu equipo, obtener recompensas y disfrutar el juego sin gastar dinero.</p>
+</section>
 
-      <div class="time-display">
-        <span id="current-time">00:00</span>
-        <span id="duration">00:00</span>
-      </div>
+<section id="blog">
+  <h2>Guías destacadas 2025</h2>
 
-      <div class="progress-container" id="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
-      </div>
-
-      <div class="player-controls">
-        <button class="control-btn" id="play-btn"><i class="fas fa-play"></i> Reproducir</button>
-        <button class="control-btn" id="pause-btn"><i class="fas fa-pause"></i> Pausar</button>
-        <button class="control-btn" id="mute-btn"><i class="fas fa-volume-up"></i> Silenciar</button>
-
-        <div class="volume-control">
-          <span>Volumen:</span>
-          <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.7">
-        </div>
-
-        <button class="control-btn" id="fullscreen-btn"><i class="fas fa-expand"></i> Pantalla Completa</button>
-      </div>
-
-      <div class="social-share">
-        <div class="social-btn"><i class="fab fa-facebook-f"></i></div>
-        <div class="social-btn"><i class="fab fa-twitter"></i></div>
-        <div class="social-btn"><i class="fab fa-whatsapp"></i></div>
-        <div class="social-btn"><i class="fas fa-share-alt"></i></div>
-      </div>
-    </div>
-
-    <footer>
-      <p>© 2025 Video Viral - Todos los derechos reservados</p>
-    </footer>
+  <div class="post">
+    <h3>Cómo obtener gemas gratis 2025</h3>
+    <amp-img src="gemas.jpg" alt="Cómo obtener gemas gratis en FC Mobile 2025" width="600" height="350" layout="responsive"></amp-img>
+    <p>Las gemas son una de las monedas más importantes en FC Mobile, ya que permiten acceder a eventos, abrir sobres y acelerar mejoras. Aunque no se pueden conseguir con trucos externos, hay varios métodos legales para acumularlas sin gastar dinero.</p>
+    <h4>🎯 Métodos seguros para conseguir gemas</h4>
+    <ul>
+      <li><strong>Completa los logros diarios:</strong> cada misión otorga pequeñas cantidades de gemas y monedas.</li>
+      <li><strong>Participa en eventos semanales:</strong> la mayoría de los eventos otorgan gemas como recompensa acumulativa.</li>
+      <li><strong>Sube de nivel tu cuenta:</strong> cada vez que aumentas tu OVR global, el sistema te da recompensas adicionales.</li>
+      <li><strong>Canjea códigos oficiales:</strong> EA a veces lanza códigos en redes sociales con premios gratuitos.</li>
+    </ul>
+    <p>💡 <strong>Consejo:</strong> guarda tus gemas y úsalas en promociones especiales donde los sobres ofrecen jugadores de alto valor.</p>
   </div>
+
+  <div class="post">
+    <h3>Cómo obtener FC Points gratis 2025</h3>
+    <amp-img src="fcpoints.jpg" alt="Cómo obtener FC Points gratis en FC Mobile 2025" width="600" height="350" layout="responsive"></amp-img>
+    <p>Los <strong>FC Points</strong> son la moneda premium de FC Mobile, normalmente adquirida con dinero real. Sin embargo, existen métodos legítimos dentro del juego para conseguirlos gratis o a través de recompensas por eventos especiales.</p>
+    <h4>⚙️ Métodos legítimos para ganar FC Points</h4>
+    <ul>
+      <li><strong>Eventos de temporada:</strong> EA suele ofrecer FC Points en campañas de aniversario y promociones globales.</li>
+      <li><strong>Misiones especiales:</strong> algunos desafíos de larga duración otorgan FC Points al completarse.</li>
+      <li><strong>Programas de recompensas:</strong> si conectas tu cuenta EA Play, puedes recibir bonificaciones ocasionales.</li>
+    </ul>
+    <p>Además, seguir las redes sociales oficiales de EA Sports te permite estar atento a sorteos y actividades que premian la fidelidad de los jugadores.</p>
+    <p><strong>Tip:</strong> evita las páginas que prometen FC Points infinitos. Solo los métodos dentro del juego son seguros y autorizados por EA.</p>
+  </div>
+
+  <div class="post">
+    <h3>Cómo obtener OVR +120 gratis 2025</h3>
+    <amp-img src="ovr120.jpg" alt="Cómo aumentar el OVR a +120 gratis en FC Mobile 2025" width="600" height="350" layout="responsive"></amp-img>
+    <p>El <strong>OVR (Overall Rating)</strong> mide la calidad total de tu plantilla. Alcanzar +120 es un logro posible en FC Mobile 2025 con constancia, buena gestión de recursos y participación en eventos clave.</p>
+    <h4>📈 Estrategias para aumentar tu OVR sin pagar</h4>
+    <ul>
+      <li><strong>Mejora jugadores base:</strong> enfócate en los jugadores que usas más, y gasta puntos de entrenamiento en ellos.</li>
+      <li><strong>Participa en eventos con jugadores élite:</strong> muchos te permiten obtener cartas de +100 OVR.</li>
+      <li><strong>Sube la química del equipo:</strong> los enlaces de club y nacionalidad pueden aumentar hasta +3 de OVR total.</li>
+      <li><strong>Equilibra posiciones:</strong> tener suplentes fuertes ayuda a elevar el promedio global.</li>
+    </ul>
+    <p>⚽ <strong>Consejo experto:</strong> guarda tus puntos de mejora para actualizaciones globales o reinicios de temporada, donde las recompensas son mayores.</p>
+  </div>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1104389206292425" crossorigin="anonymous"></script>
+  <ins class="adsbygoogle" style="display:block;margin:20px auto" data-ad-client="ca-pub-1104389206292425" data-ad-slot="3443240030" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <div class="post">
+    <h3>Eventos y recompensas semanales</h3>
+    <amp-img src="futbol4.jpg" alt="Eventos semanales en FC Mobile" width="600" height="350" layout="responsive"></amp-img>
+    <p>FC Mobile se actualiza constantemente con eventos que permiten obtener jugadores exclusivos, monedas y puntos de experiencia. Cada evento tiene misiones diarias que, si completas, te otorgan recompensas acumulativas.</p>
+    <p>Los más populares incluyen el <strong>Evento de la Semana</strong> y los desafíos de liga. Participar en ambos mejora tu plantilla y te da ventaja competitiva.</p>
+    <p>Consejo: guarda energía para los fines de semana, cuando los eventos de puntuación doble están activos.</p>
+  </div>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1104389206292425" crossorigin="anonymous"></script>
+  <ins class="adsbygoogle" style="display:block;margin:20px auto" data-ad-client="ca-pub-1104389206292425" data-ad-slot="2079199231" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <div class="post">
+    <h3>Curiosidades del fútbol real</h3>
+    <amp-img src="futbol5.jpg" alt="Curiosidades del fútbol mundial" width="600" height="350" layout="responsive"></amp-img>
+    <p>El fútbol tiene una historia fascinante llena de récords y momentos únicos. Por ejemplo, el primer Mundial se celebró en 1930 y fue ganado por Uruguay. Lionel Messi y Cristiano Ronaldo dominan la era moderna con logros históricos.</p>
+    <p>El récord de más goles en un año natural pertenece a Messi, con 91 goles en 2012. Mientras tanto, Pelé y Maradona marcaron épocas distintas con su talento.</p>
+    <p>Dato curioso: el balón oficial cambia de diseño en cada torneo importante, adaptándose a la tecnología y las condiciones del juego.</p>
+  </div>
+
+  <section id="noticias">
+    <h2>📰 Últimas noticias del fútbol</h2>
+    <p>El fútbol no se detiene, y aquí te compartimos los titulares más recientes:</p>
+    <ul>
+      <li><strong>Champions League:</strong> grandes sorpresas en los octavos con victorias inesperadas.</li>
+      <li><strong>Fichajes 2025:</strong> rumores sobre la llegada de nuevos talentos a clubes top europeos.</li>
+      <li><strong>Ligas locales:</strong> equipos latinoamericanos lideran sus campeonatos con actuaciones destacadas.</li>
+    </ul>
+    <p>Visita FC Zenit a diario para mantenerte actualizado sobre las noticias más relevantes del fútbol mundial.</p>
+  </section>
+
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>Escríbenos: <a href="mailto:todosera047@gmail.com">todosera047@gmail.com</a></p>
+</section>
+
+<section id="privacidad">
+  <h2>Política de Privacidad</h2>
+  <p>En FC Zenit respetamos tu privacidad. No compartimos tu información personal con terceros. Todos los datos se manejan conforme a las leyes de protección vigentes.</p>
+</section>
+
+<section id="aviso">
+  <h2>Aviso Legal</h2>
+  <p>FC Zenit no está afiliado a EA Sports ni a FC Mobile. Todo el contenido es informativo, educativo y pertenece a sus respectivos propietarios.</p>
+</section>
+
+<section id="cookies">
+  <h2>Política de Cookies</h2>
+  <p>Este sitio utiliza cookies para mejorar tu experiencia y mostrar anuncios personalizados según tus intereses.</p>
+</section>
+
+<footer>
+  <script id="_waurrt">var _wau = _wau || []; _wau.push(["dynamic", "k40azx7u2k", "rrt", "cc0000000000", "small"]);</script><script async src="//waust.at/d.js"></script>
+  <p>© 2025 FC Zenit - Todos los derechos reservados</p>
+</footer>
+
 </body>
 </html>
